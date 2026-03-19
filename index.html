@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanu Mushroom - Premium Fresh Organic Mushrooms</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #bc6c25;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            font-family: 'Roboto Condensed', sans-serif;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: #bc6c25;
+        }
+
+        .contact-button {
+            background-color: #bc6c25;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.3s;
+        }
+
+        .contact-button:hover {
+            background-color: #9a5620;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(28, 45, 16, 0.7), rgba(28, 45, 16, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23fefae0" width="1200" height="600"/><circle cx="100" cy="100" r="40" fill="%23bc6c25" opacity="0.1"/><circle cx="1100" cy="500" r="60" fill="%23bc6c25" opacity="0.1"/></svg>');
+            background-position: center;
+            background-size: cover;
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .hero h1 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background-color: #bc6c25;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background-color: #9a5620;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 0;
+        }
+
+        section h2 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #283618;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Featured Products */
+        .featured-section {
+            background-color: #fefae0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #d4a574 0%, #b8956a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #bc6c25;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #283618;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .product-details {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-description {
+            color: #777;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+
+        .product-price {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #bc6c25;
+        }
+
+        .product-button {
+            background-color: #283618;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: background-color 0.3s;
+        }
+
+        .product-button:hover {
+            background-color: #bc6c25;
+        }
+
+        /* Why Mushroom Section */
+        .why-section {
+            background-color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: #fefae0;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #bc6c25;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #283618;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: linear-gradient(135deg, #283618 0%, #2d5016 100%);
+            color: white;
+        }
+
+        .testimonials-section h2 {
+            color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #bc6c25;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .stars {
+            color: #ffd700;
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: #fefae0;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            color: #555;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #bc6c25 0%, #9a5620 100%);
+            color: white;
+        }
+
+        .contact-section h2 {
+            color: white;
+        }
+
+        .contact-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-box {
+            background: rgba(255,255,255,0.1);
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-box h3 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .contact-box p {
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .phone-number {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fefae0;
+            margin-top: 0.5rem;
+        }
+
+        .email-link {
+            color: #fefae0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+
+        .email-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a2e0f;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #bc6c25;
+            text-transform: uppercase;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #bc6c25;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-wrapper {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-wrapper">
+            <div class="logo">🍄 Tanu Mushroom</div>
+            <nav>
+                <a href="#products">Shop</a>
+                <a href="#about">Our Story</a>
+                <a href="#why">Features</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#contact" class="contact-button">📞 Connect with Tanu</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Superfood Revolution</h1>
+        <p class="hero-subtitle">Premium Organic Mushrooms for Your Health & Nutrition</p>
+        <a href="#products" class="cta-button">Shop Now</a>
+    </div>
+
+    <!-- Featured Products -->
+    <section class="featured-section" id="products">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <p class="section-subtitle">Handpicked Premium Mushrooms for the Best Taste & Nutrition</p>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        🍄
+                        <span class="product-badge">Featured</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Button Mushrooms</div>
+                        <div class="product-details">200 Gm | Fresh Pack</div>
+                        <div class="product-description">Premium white button mushrooms, fresh and nutrient-rich. Perfect for daily cooking and meal prep.</div>
+                        <div class="product-footer">
+                            <span class="product-price">₹150</span>
+                            <button class="product-button">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        🍄
+                        <span class="product-badge">Best Seller</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Oyster Mushrooms</div>
+                        <div class="product-details">250 Gm | Fresh Pack</div>
+                        <div class="product-description">Delicate oyster variety with unique flavor. Ideal for stir-fries, soups, and sautés.</div>
+                        <div class="product-footer">
+                            <span class="product-price">₹180</span>
+                            <button class="product-button">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        🍄
+                        <span class="product-badge">Premium</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Shiitake Mushrooms</div>
+                        <div class="product-details">200 Gm | Fresh Pack</div>
+                        <div class="product-description">Premium shiitake with rich umami flavor. Perfect for gourmet dishes and fine dining.</div>
+                        <div class="product-footer">
+                            <span class="product-price">₹250</span>
+                            <button class="product-button">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        🍄
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Portobello Mushrooms</div>
+                        <div class="product-details">300 Gm | Fresh Pack</div>
+                        <div class="product-description">Large, hearty portobello variety. Excellent for grilling, roasting, and BBQ preparations.</div>
+                        <div class="product-footer">
+                            <span class="product-price">₹200</span>
+                            <button class="product-button">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        🍄
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Mixed Mushroom Pack</div>
+                        <div class="product-details">400 Gm | Assorted Fresh</div>
+                        <div class="product-description">Variety of fresh mushrooms - perfect for exploring different flavors and textures.</div>
+                        <div class="product-footer">
+                            <span class="product-price">₹190</span>
+                            <button class="product-button">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        🍄
+                        <span class="product-badge">Exclusive</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Organic Morels</div>
+                        <div class="product-details">150 Gm | Premium Grade</div>
+                        <div class="product-description">Rare premium morel mushrooms - a delicacy for special culinary occasions and celebrations.</div>
+                        <div class="product-footer">
+                            <span class="product-price">₹400</span>
+                            <button class="product-button">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Mushroom Section -->
+    <section class="why-section" id="why">
+        <div class="container">
+            <h2>Why Choose Tanu Mushroom</h2>
+            <p class="section-subtitle">Experience Premium Quality & Health Benefits</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>100% Organic</h3>
+                    <p>Naturally grown without pesticides, chemicals, or artificial additives. Pure nutrition in every bite.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Fresh delivery within 24-48 hours. Ensuring maximum freshness and nutritional value at your doorstep.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Premium Quality</h3>
+                    <p>Hand-picked and quality-tested mushrooms. Every product meets our strict quality standards.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💪</div>
+                    <h3>Health Benefits</h3>
+                    <p>Rich in antioxidants, vitamins, and minerals. Supports immunity, digestion, and overall wellness.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Affordable Prices</h3>
+                    <p>Direct from farm to table. No middlemen = Better prices without compromising quality.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Customer First</h3>
+                    <p>Dedicated support and service. Your satisfaction is our priority. Always ready to help.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <h2>Customer Reviews</h2>
+            <p class="section-subtitle">Join Thousands of Happy & Healthy Customers</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">RK</div>
+                        <div>
+                            <div class="testimonial-name">Rajesh Kumar</div>
+                            <div class="testimonial-role">Regular Customer</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">"Excellent quality mushrooms! Fresh and delivered quickly. I've been ordering from Tanu for 6 months now and never disappointed."</div>
+                    <div class="stars">★★★★★</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">PS</div>
+                        <div>
+                            <div class="testimonial-name">Priya Singh</div>
+                            <div class="testimonial-role">Health Conscious</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">"Best organic mushrooms in the market. The nutritional value and taste are outstanding. Highly recommended for families!"</div>
+                    <div class="stars">★★★★★</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">AM</div>
+                        <div>
+                            <div class="testimonial-name">Amit Mehta</div>
+                            <div class="testimonial-role">Chef</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">"As a professional chef, I demand premium ingredients. Tanu's mushrooms meet all my requirements. Consistent quality always!"</div>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2>About Tanu Mushroom</h2>
+            <div class="about-content">
+                <p>Welcome to Tanu Mushroom - Your trusted partner for premium quality organic mushrooms. We're committed to delivering the freshest, highest-quality mushrooms directly from our sustainable farms to your kitchen.</p>
+
+                <p>Our mission is to make organic, nutrient-rich mushrooms accessible to every household. We believe in the power of natural foods to transform health and wellness. With years of expertise in mushroom cultivation, we ensure every product meets our stringent quality standards.</p>
+
+                <p>We practice sustainable farming, respect the environment, and deliver consistent excellence. Whether you're a home cook, health enthusiast, or professional chef, Tanu Mushroom is your perfect choice for premium mushrooms.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2>Get in Touch with Tanu</h2>
+            <p class="section-subtitle">Call to Place Your Order or Ask About Our Products</p>
+
+            <div class="contact-boxes">
+                <div class="contact-box">
+                    <h3>📱 Call Tanu</h3>
+                    <p>Direct Contact</p>
+                    <div class="phone-number">7019763815</div>
+                    <p style="margin-top: 1rem; font-size: 0.95rem;">Available Mon-Sat, 9AM-6PM</p>
+                </div>
+
+                <div class="contact-box">
+                    <h3>🛒 Place Order</h3>
+                    <p>Easy & Quick</p>
+                    <p style="font-size: 1.1rem; margin-top: 1rem;">Call to order your fresh mushrooms</p>
+                    <p style="font-size: 0.95rem; margin-top: 1rem;">Fast Delivery Available</p>
+                </div>
+
+                <div class="contact-box">
+                    <h3>🌍 Service Area</h3>
+                    <p>Wide Coverage</p>
+                    <p style="font-size: 1.1rem; margin-top: 1rem;">We deliver to your location</p>
+                    <p style="font-size: 0.95rem; margin-top: 1rem;">Ask about delivery charges & times</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>Tanu Mushroom delivers premium organic mushrooms with quality assurance and customer satisfaction.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>📱 <strong>7019763815</strong></li>
+                        <li>Contact: Tanu</li>
+                        <li>Fresh Mushroom Supplier</li>
+                        <li>Organic Quality Assured</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Why Choose Us</h4>
+                    <ul>
+                        <li><a href="#">Premium Quality</a></li>
+                        <li><a href="#">Fast Delivery</a></li>
+                        <li><a href="#">Best Prices</a></li>
+                        <li><a href="#">Customer Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tanu Mushroom. All rights reserved. | Premium Organic Mushrooms</p>
+                <p>Contact: Tanu - <strong>7019763815</strong> | For Fresh Mushrooms & Health</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
